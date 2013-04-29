@@ -122,12 +122,6 @@ make && make install
 # add "extension=redis.so" to php.ini
 popd
 
-echo "+ Install newrelic..."
-curl -L "http://download.newrelic.com/php_agent/archive/${NEWRELIC_VERSION}/newrelic-php5-${NEWRELIC_VERSION}-linux.tar.gz" | tar xz
-pushd newrelic-php5-${NEWRELIC_VERSION}-linux
-cp -f agent/x64/newrelic-`phpize --version | grep "Zend Module Api No" | tr -d ' ' | cut -f 2 -d ':'`.so `php-config --extension-dir`/newrelic.so
-popd
-
 echo "+ Packaging PHP..."
 # package PHP
 echo ${PHP_VERSION} > /app/vendor/php/VERSION

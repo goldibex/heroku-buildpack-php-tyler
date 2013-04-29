@@ -36,7 +36,7 @@ testCompile()
 	assertTrue "memcached.so extension should exist" "[ -e ${BUILD_DIR}/vendor/php/lib/php/extensions/no-debug-non-zts-20100525/memcached.so ]"
 	assertTrue "redis.so extension should exist" "[ -e ${BUILD_DIR}/vendor/php/lib/php/extensions/no-debug-non-zts-20100525/redis.so ]"
 	assertTrue "soap.so extension should exist" "[ -e ${BUILD_DIR}/vendor/php/lib/php/extensions/no-debug-non-zts-20100525/soap.so ]"
-	assertTrue "newrelic.so extension should exist" "[ -e ${BUILD_DIR}/vendor/php/lib/php/extensions/no-debug-non-zts-20100525/newrelic.so ]"
+	assertFalse "newrelic.so extension should NOT exist" "[ -e ${BUILD_DIR}/vendor/php/lib/php/extensions/no-debug-non-zts-20100525/newrelic.so ]"
 
 	assertCaptured "-----> Installing newrelic"
 	assertCaptured "newrelic daemon v${NEWRELIC_VERSION}"
